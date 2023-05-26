@@ -7,6 +7,7 @@ import com.java.tutor.survey.survey.repositories.QuestionnaireRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,5 +35,9 @@ public class QuestionService {
         }
 
         throw new RuntimeException("Questionnaire with id " + id + " does not exits!");
+    }
+
+    public List<Question> getAll(){
+        return questionRepository.findAll();
     }
 }

@@ -16,8 +16,7 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-
-    record QuestionRequest(Long questionnaireId, String text){};
+    record QuestionRequest(Long questionnaireId, String text){}
     @PostMapping
     public Question create(@RequestBody QuestionRequest questionRequest){
         return questionService.create(questionRequest.text(), questionRequest.questionnaireId());
@@ -26,5 +25,10 @@ public class QuestionController {
     @GetMapping("/{id}")
     public Question getById(@PathVariable Long id){
         return questionService.findById(id);
+    }
+
+    @GetMapping
+    public List<Question> getAllQuestions(){
+        return questionService.getAll();
     }
 }
