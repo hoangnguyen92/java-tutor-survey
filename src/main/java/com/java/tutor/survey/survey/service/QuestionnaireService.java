@@ -21,7 +21,7 @@ public class QuestionnaireService {
 
     public Questionnaire create(String name){
         Questionnaire q = new Questionnaire();
-        q.setName(name);
+        q.setName(name); // -> Q1
         return questionnaireRepository.save(q);
     }
 
@@ -40,6 +40,7 @@ public class QuestionnaireService {
 
     public List<Question> getAllQuestions(Long id) {
         Questionnaire questionnaire = findById(id);
+
         return questionnaire.getQuestions();
     }
 }

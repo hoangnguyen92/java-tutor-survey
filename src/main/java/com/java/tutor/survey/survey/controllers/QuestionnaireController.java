@@ -21,7 +21,7 @@ public class QuestionnaireController {
     record QuestionnaireRequest (String name){}
     @PostMapping
     public Questionnaire create(@RequestBody QuestionnaireRequest request){
-        return questionnaireService.create(request.name());
+        return questionnaireService.create(request.name()); // name -> Q1
     }
 
     @GetMapping
